@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<style>
+	body {
+      background-color: #98F1D0;
+      display: flex;
+      justify-content: center; 
+      align-items: flex-start;
+      padding-top: 50px; 
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+	.box {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 500px;
+    }
+</style>
+  <body>
+  	<div class="box">
+    <a href="index.html" class="w3-bar-item w3-button">Return to Home Page</a>
+    <h1>Nth Factorial, Sum and Average</h1>
+    <label for="num">Enter an integer: </label>
+    <input id="num" type="number">
+    <button onclick="compute()">Compute Results</button>
+    <p>Factorial: <span id="factorial"></span></p>
+    <p>Sum: <span id="sum"></span></p>
+    <p>Average: <span id="average"></span></p>
+	</div>
+    <script>
+      var n = 0;
+      function calculateFactorial() 
+      {
+        var result = 1;
+        var i = 1;
+        while (i <= n) {
+          result *= i;
+          i++;
+        }
+        return result;
+      }
+
+      function calculateSum() 
+      {
+        var result = 0;
+        var i = 1;
+        if (n > 0) {
+          do {
+            result += i;
+            i++;
+          } while (i <= n);
+        }
+        return result;
+      }
+      function calculateAverage() 
+      {
+        if (n === 0) return 0;
+        var total = 0;
+        for (var i = 1; i <= n; i++) 
+        {
+          total += i;
+        }
+        return total / n;
+      }
+      function compute() 
+      {
+        n = document.getElementById("num").value * 1;
+        document.getElementById("factorial").innerHTML = calculateFactorial();
+        document.getElementById("sum").innerHTML = calculateSum();
+        document.getElementById("average").innerHTML = calculateAverage();
+      }
+    </script>
+  </body>
+</html>
