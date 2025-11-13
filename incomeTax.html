@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<style>
+	body {
+      background-color: #CCCCFF;
+      display: flex;
+      justify-content: center; 
+      align-items: flex-start;
+      padding-top: 50px; 
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+	.box {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 500px;
+    }
+</style>
+  <body>
+  <div class="box">
+  <a href="index.html" class="w3-bar-item w3-button">Return to Home Page</a>
+    <h1>Income Tax Calculator</h1>
+    <label for="income">Enter Taxable Income (P): </label>
+    <input type="number" id="income">
+    <button onclick="computeTax()">Compute Tax</button>
+    <p id="tax">Income Tax: P0.00</p>
+   </div>
+    <script>
+      function computeTax() 
+      {
+        var income = Number(document.getElementById("income").value);
+        var tax = 0;
+
+        if (income <= 250000) 
+        {
+          tax = 0;
+        } else if (income <= 400000) {
+          tax = 0.20 * (income - 250000);
+        } else if (income <= 800000) {
+          tax = 30000 + 0.25 * (income - 400000);
+        } else if (income <= 2000000) {
+          tax = 130000 + 0.30 * (income - 800000);
+        } else if (income <= 8000000) {
+          tax = 490000 + 0.32 * (income - 2000000);
+        } else {
+          tax = 2410000 + 0.35 * (income - 8000000);
+        }
+
+        document.getElementById("tax").innerHTML = "Income Tax: P" + tax;
+      }
+
+    </script>
+  </body>
+</html>
+
